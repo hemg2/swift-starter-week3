@@ -12,10 +12,12 @@ class CoffeeShop {
     var sales: Int
     var barista: Person
     var menu: [Coffee: Int]
-    var pickUpTable: [Coffee]
-    {
+    var pickUpTable: [Coffee] {
         didSet {
-            coffeeOnPickUpTable()
+            if oldValue.count < pickUpTable.count {
+                announceCompletion()
+            }
+//            coffeeOnPickUpTable()
         }
     }
     
@@ -56,7 +58,15 @@ class CoffeeShop {
     func coffeeOnPickUpTable() {
         let coffeeOnTheTable = pickUpTable.map {$0.rawValue}.joined(separator: ",")
         if coffeeOnTheTable.isEmpty == false {
-            print("\(coffeeOnTheTable)주문 하신 고객님 \(coffeeOnTheTable)(이/가) 준비되었습니다. 픽업대에서 가져가주세요")
+            print("\(coffeeOnTheTable)주문하신 고객님 \(coffeeOnTheTable)(이/가) 준비되었습니다. 픽업대에서 가져가주세요")
         }
     }
+    
+    /// 추가 피드백
+    func announceCompletion() {
+        if let coffee = pickUpTable.last {
+            print("\(coffee)주문하신 고객님 \(coffee)(이/가) 준비되었습니다. 픽업대에서 가져가주세요.")
+        }
+    }
+    
 }

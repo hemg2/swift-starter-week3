@@ -14,6 +14,6 @@ var yagombucks = CoffeeShop(name: "yagombucks", sales: 0, barista: misterLee,
                             pickUpTable: [])
 
 missKim.order(.latte, of: yagombucks, by: missKim.name)
-missKim.order(.americano, of: yagombucks, by: misterLee.name)
-missKim.order(.caramelMacchiato, of: yagombucks, by: misterLee.name)
-missKim.order(.javachipFrappuccino, of: yagombucks, by: misterLee.name)
+//missKim.order(.americano, of: yagombucks, by: misterLee.name)
+//missKim.order(.caramelMacchiato, of: yagombucks, by: misterLee.name)
+//missKim.order(.javachipFrappuccino, of: yagombucks, by: misterLee.name)
